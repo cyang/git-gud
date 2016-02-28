@@ -48,7 +48,9 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCellWithIdentifier("RepoCell") as! RepoCell
         
         cell.repoNameLabel.text = repos![indexPath.row].name
-        cell.userLabel.text = repos![indexPath.row].ownerHandle
+        cell.userLabel.text = "by \(repos![indexPath.row].ownerHandle)"
+        cell.starLabel.text = String(repos![indexPath.row].stars)
+        cell.forkLabel.text = String(repos![indexPath.row].forks)
         
         cell.userImage.setImageWithURL(NSURL(string: repos![indexPath.row].ownerAvatarURL!)!)
         
